@@ -1,0 +1,79 @@
+--- git/arch/arm/mach-omap2/board-overo.c.orig	2011-09-28 11:27:38.000000000 +0200
++++ git/arch/arm/mach-omap2/board-overo.c	2012-09-07 02:56:48.399725671 +0200
+@@ -481,15 +481,15 @@
+ 
+ static struct gpio_led gpio_leds[] = {
+ 	{
+-		.name			= "overo:red:gpio21",
++		.name			= "wpss:status",
+ 		.default_trigger	= "heartbeat",
+-		.gpio			= 21,
++		.gpio			= 146,
+ 		.active_low		= true,
+ 	},
+ 	{
+-		.name			= "overo:blue:gpio22",
++		.name			= "wpss:network",
+ 		.default_trigger	= "none",
+-		.gpio			= 22,
++		.gpio			= 144,
+ 		.active_low		= true,
+ 	},
+ 	{
+@@ -498,6 +498,18 @@
+ 		.gpio			= -EINVAL,	/* gets replaced */
+ 		.active_low		= true,
+ 	},
++	{
++		.name			= "wpss:battery",
++		.default_trigger	= "none",
++		.gpio			= 145,
++		.active_low		= true,
++	},
++	{
++		.name			= "wpss:connection",
++		.default_trigger	= "none",
++		.gpio			= 170,
++		.active_low		= true,
++	},
+ };
+ 
+ static struct gpio_led_platform_data gpio_leds_pdata = {
+@@ -529,14 +541,26 @@
+ static struct gpio_keys_button gpio_buttons[] = {
+ 	{
+ 		.code			= BTN_0,
+-		.gpio			= 23,
+-		.desc			= "button0",
++		.gpio			= 65,
++		.desc			= "panic",
+ 		.wakeup			= 1,
+ 	},
+ 	{
+ 		.code			= BTN_1,
++		.gpio			= 23,
++		.desc			= "volumedown",
++		.wakeup			= 1,
++	},
++	{
++		.code			= BTN_2,
+ 		.gpio			= 14,
+-		.desc			= "button1",
++		.desc			= "volumeup",
++		.wakeup			= 1,
++	},
++	{
++		.code			= BTN_3,
++		.gpio			= 17,
++		.desc			= "call",
+ 		.wakeup			= 1,
+ 	},
+ };
+@@ -742,6 +766,7 @@
+ 
+ #ifdef CONFIG_OMAP_MUX
+ static struct omap_board_mux board_mux[] __initdata = {
++	OMAP3_MUX(ETK_D3, OMAP_PIN_INPUT|OMAP_MUX_MODE4),
+ 	{ .reg_offset = OMAP_MUX_TERMINATOR },
+ };
+ #endif

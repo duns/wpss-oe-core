@@ -1,0 +1,40 @@
+sudo apt-get install libunicap2-dev 
+sudo apt-get install libunicapgtk2-dev 
+sudo updatedb
+vlc
+ls /usr/src/
+vlc dc1394://cameraindex=1
+vlc dc1394://cameraindex=1 --sout='#transcode{vcode=mp4v}:rtp{mux=ts,dst=zaphod,sdp=sap,name="Test"'
+vlc dc1394://cameraindex=1   --sout='#transcode{vcodec=mp4v,vb=3000,keyint=30}:std{access=udp,mux=ts,url=zaphod}
+vlc dc1394://cameraindex=1   --sout='#transcode{vcodec=mp4v,vb=3000,keyint=30}:std{access=udp,mux=ts,url=zaphod}'
+vlc dc1394://cameraindex=1   --sout='#transcode{vcodec=mp4v,vb=3000,keyint=30}:std{access=udp,mux=ts,dst=zaphod:1234}'
+vlc dc1394://cameraindex=1:size=320x240:fps=15   --sout='#transcode{vcodec=mp4v,vb=3000,keyint=30}:std{access=udp,mux=ts,dst=zaphod:1234}'
+vlc dc1394://cameraindex=1:size=320x240:fps=15   --sout='#duplicate{dst=std{access=udp,mux=ts,dst=zaphod:1234}}'
+vlc dc1394://cameraindex=1:size=320x240:fps=15   --sout-transcode-threads='#transcode{vcodec=mp4v,vb=3000,keyint=30}:std{access=udp,mux=ts,dst=zaphod:1234}'
+vlc dc1394://cameraindex=1:size=320x240:fps=15   --sout='#duplicate{dst=std{access=udp,mux=ts,dst=zaphod:1234}}'
+vlc dc1394://cameraindex=1:size=320x240:fps=15   --sout-transcode-threads='#transcode{vcodec=mp1v,vb=3000,keyint=30}:std{access=udp,mux=ts,dst=zaphod:1234}'
+vlc dc1394://cameraindex=1:size=320x240:fps=15   --sout='#transcode{vcodec=mp1v,vb=3000,keyint=30}:std{access=udp,mux=ts,dst=zaphod:1234}'
+vlc dc1394://cameraindex=1:size=320x240:fps=15   --sout='#transcode{vcodec=mp1v,vb=3000,keyint=30}:std{access=rtp,mux=ts,dst=zaphod:5004}'
+vlc dc1394://cameraindex=1:size=320x240:fps=15   --sout='#transcode{vcodec=mp4v,vb=3000,keyint=30}:std{access=rtp,mux=ts,dst=zaphod:5004}'
+vlc dc1394://cameraindex=1:size=320x240:fps=15   --sout='#transcode{vcodec=mp4v,vb=3000,keyint=30}:rtp{mux=ts,dst=zaphod,port=5004}'
+vlc dc1394://cameraindex=1:size=320x240:fps=15   --sout='#transcode{vcodec=theora qualit=1}:rtp{mux=ts,dst=zaphod,port=5004}'
+vlc dc1394://cameraindex=1:size=320x240:fps=15   --sout='#transcode{vcodec=theora,quality=1}:std{access=udp,mux=ts,dst=zaphod:1234}'
+vlc dc1394://cameraindex=1:size=320x240:fps=15   --sout='#transcode{vcodec=mp4v,vb=3000,keyint=30,fps=30}:rtp{mux=ts,dst=zaphod,port=5004}'
+vlc dc1394://cameraindex=1:size=320x240:fps=15   --sout='#transcode{vcodec=mp4v,vb=3000,keyint=30,threads=2}:rtp{mux=ts,dst=zaphod,port=5004}'
+vlc dc1394://cameraindex=1:size=320x240:fps=15   --sout='#transcode{vcodec=mp4v,vb=3000,keyint=30,threads=2}:rtp{mux=ts,dst=zaphod,port=5004,caching=0}'
+vlc dc1394://cameraindex=1:size=640x480:fps=30   --sout='#transcode{vcodec=mp4v,vb=3000,keyint=30,threads=2}:rtp{mux=ts,dst=zaphod,port=5004,caching=0}'
+vlc dc1394://cameraindex=1:size=640x480   --sout='#transcode{vcodec=mp4v,vb=3000,keyint=30,threads=2}:rtp{mux=ts,dst=zaphod,port=5004,caching=0}'
+vlc dc1394://cameraindex=1:size=640x480   --sout='#transcode{vcodec=mp2v,vb=3000,keyint=30,threads=2}:rtp{mux=ts,dst=zaphod,port=5004,caching=0}'
+ps auxwww|grep shairpo
+cat /var/run/shairport.pid 
+ps auxwww|grep avahi
+sudo service shairport restart
+top
+sudo apt-get install qutecom
+qutecom
+sudo apt-get install libopal-dev 
+sudo apt-get install ekiga
+ekiga
+ekiga --help
+ekiga --help-all
+ekiga -d 4

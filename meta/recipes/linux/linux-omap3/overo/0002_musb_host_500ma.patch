@@ -1,0 +1,25 @@
+--- git/arch/arm/mach-omap2/board-overo.c.orig2	2012-09-08 02:48:04.834970419 +0200
++++ git/arch/arm/mach-omap2/board-overo.c	2012-09-08 02:48:19.994970283 +0200
+@@ -364,6 +364,13 @@
+ 	},
+ };
+ 
++static struct omap_musb_board_data musb_board_data = { 
++       .interface_type         = MUSB_INTERFACE_ULPI, 
++       .mode                   = MUSB_HOST, /* change to MUSB_OTG when 
++working */ 
++       .power                  = 500, 
++}; 
++ 
+ static struct omap2_hsmmc_info mmc[] = {
+ 	{
+ 		.mmc		= 1,
+@@ -695,7 +702,7 @@
+ 	defined (CONFIG_USB_MUSB_HDRC_MODULE)
+ static inline void __init overo_init_musb(void)
+ {
+-	usb_musb_init(NULL);
++	usb_musb_init(NULL/*&musb_board_data*/);
+ }
+ #else
+ static inline void __init overo_init_musb(void) { return; }

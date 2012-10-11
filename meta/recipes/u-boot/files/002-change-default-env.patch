@@ -1,0 +1,30 @@
+--- git/include/configs/omap3_overo.h.orig	2012-10-10 14:45:01.234276617 +0200
++++ git/include/configs/omap3_overo.h	2012-10-10 15:33:39.186250952 +0200
+@@ -107,6 +107,7 @@
+ #undef CONFIG_CMD_IMLS		/* List all found images	*/
+ #undef CONFIG_CMD_NFS		/* NFS support			*/
+ #define CONFIG_CMD_NET		/* bootp, tftpboot, rarpboot	*/
++#define CONFIG_CMD_GPIO     /* Enable gpio command */
+ 
+ #define CONFIG_SYS_NO_FLASH
+ #define CONFIG_HARD_I2C
+@@ -150,7 +151,7 @@
+ 	"loadaddr=0x82000000\0" \
+ 	"console=ttyO2,115200n8\0" \
+ 	"mpurate=500\0" \
+-	"optargs=\0" \
++	"optargs=mem=93M@0x80000000 mem=128M@0x88000000\0" \
+ 	"vram=12M\0" \
+ 	"dvimode=1024x768MR-16@60\0" \
+ 	"defaultdisplay=dvi\0" \
+@@ -178,6 +179,10 @@
+ 	"loadbootscript=fatload mmc ${mmcdev} ${loadaddr} boot.scr\0" \
+ 	"bootscript=echo Running bootscript from mmc ...; " \
+ 		"source ${loadaddr}\0" \
++	"bootenv=uEnv.txt\0" \
++        "loadbootenv=fatload mmc ${mmcdev} ${loadaddr} ${bootenv}\0" \
++        "importbootenv=echo Importing environment from mmc ...; " \
++                "env import -t $loadaddr $filesize\0" \
+ 	"loaduimage=fatload mmc ${mmcdev} ${loadaddr} uImage\0" \
+ 	"mmcboot=echo Booting from mmc ...; " \
+ 		"run mmcargs; " \

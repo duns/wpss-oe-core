@@ -1,0 +1,20 @@
+diff -crB linphone-3.1.0/configure.in linphone-3.1.0-patched/configure.in
+*** linphone-3.1.0/configure.in	Mon Mar 16 11:18:47 2009
+--- linphone-3.1.0-patched/configure.in	Thu Sep 29 15:48:56 2011
+***************
+*** 252,258 ****
+  
+  if test "$GCC$strictness" = "yesyes" ; then
+  	STRICT_OPTIONS="-Wall -Wp,-D_FORTIFY_SOURCE=2"
+! 	STRICT_OPTIONS="$STRICT_OPTIONS -Werror"
+  	CFLAGS="$CFLAGS -fno-strict-aliasing"
+  fi
+  
+--- 252,258 ----
+  
+  if test "$GCC$strictness" = "yesyes" ; then
+  	STRICT_OPTIONS="-Wall -Wp,-D_FORTIFY_SOURCE=2"
+! #	STRICT_OPTIONS="$STRICT_OPTIONS -Werror"
+  	CFLAGS="$CFLAGS -fno-strict-aliasing"
+  fi
+  

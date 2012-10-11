@@ -1,0 +1,16 @@
+--- linphone-3.1.0/mediastreamer2/src/alsa.c.orig	2011-12-12 18:13:12.628328822 +0200
++++ linphone-3.1.0/mediastreamer2/src/alsa.c	2011-12-12 18:13:37.367567148 +0200
+@@ -31,7 +31,7 @@
+ to 512, 1024, 2048, 4096...
+ then try incrementing the number of periods*/
+ #define ALSA_PERIODS 8
+-#define ALSA_PERIOD_SIZE 256
++#define ALSA_PERIOD_SIZE 512
+ 
+ /*uncomment the following line if you have problems with an alsa driver
+ having sound quality trouble:*/
+-/*#define EPIPE_BUGFIX 1*/
++#define EPIPE_BUGFIX 1
+ 
+ static MSSndCard * alsa_card_new(int id);
+ static MSSndCard *alsa_card_duplicate(MSSndCard *obj)

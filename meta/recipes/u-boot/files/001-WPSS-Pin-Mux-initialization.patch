@@ -1,0 +1,11 @@
+--- git/board/overo/overo.h.orig	2012-09-06 22:43:48.167859176 +0200
++++ git/board/overo/overo.h	2012-09-06 22:49:00.603856430 +0200
+@@ -298,7 +298,7 @@
+ 	MUX_VAL(CP(ETK_D1_ES2),		(IEN  | PTD | EN  | M4)) /*GPIO_15 - X_GATE*/\
+ 	MUX_VAL(CP(ETK_D2_ES2),		(IEN  | PTU | EN  | M4)) /*GPIO_16*/\
+ 								 /* - W2W_NRESET*/\
+-	MUX_VAL(CP(ETK_D3_ES2),		(IEN  | PTU | EN  | M2)) /*MMC3_DAT3*/\
++	MUX_VAL(CP(ETK_D3_ES2),		(IEN  | PTU | DIS | M4)) /*WPSS GENERAL_BUTTON*/\
+ 	MUX_VAL(CP(ETK_D4_ES2),		(IEN  | PTU | EN  | M2)) /*MMC3_DAT0*/\
+ 	MUX_VAL(CP(ETK_D5_ES2),		(IEN  | PTU | EN  | M2)) /*MMC3_DAT1*/\
+ 	MUX_VAL(CP(ETK_D6_ES2),		(IEN  | PTU | EN  | M2)) /*MMC3_DAT2*/\
